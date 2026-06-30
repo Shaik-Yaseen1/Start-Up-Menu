@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Roasted Leaf — Menu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Jost:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #191714;
+            --bg-soft: #221e19;
+            --cream: #efe7d8;
+            --cream-dim: #bdb2a0;
+            --gold: #c9a35f;
+            --gold-dim: #8c7548;
+            --rule: #4a4138;
+            --shadow: 0 1px 0 rgba(255, 255, 255, 0.04);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            margin: 0;
+            background:
+                radial-gradient(ellipse at top, #221d18 0%, var(--bg) 60%);
+            color: var(--cream);
+            font-family: 'Jost', sans-serif;
+            padding: 0 0 80px;
+        }
+
+        /* faint paper grain */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.5;
+            background-image:
+                radial-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+            background-size: 3px 3px;
+        }
+
+        .wrap {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 64px 28px 0;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            text-align: center;
+            padding-bottom: 46px;
+            border-bottom: 1px solid var(--rule);
+            margin-bottom: 56px;
+            position: relative;
+        }
+
+        .hero .eyebrow {
+            font-family: 'Jost', sans-serif;
+            letter-spacing: 0.45em;
+            text-transform: uppercase;
+            font-size: 11px;
+            color: var(--gold);
+            margin-bottom: 18px;
+            font-weight: 500;
+        }
+
+        .hero h1 {
+            font-family: 'Fraunces', serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-size: clamp(40px, 7vw, 76px);
+            margin: 0;
+            letter-spacing: 0.01em;
+            color: var(--cream);
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            font-weight: 400;
+            color: var(--gold);
+        }
+
+        .hero .sub {
+            margin-top: 18px;
+            font-size: 15px;
+            color: var(--cream-dim);
+            letter-spacing: 0.06em;
+        }
+
+        .hero .ornament {
+            margin-top: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            color: var(--gold-dim);
+        }
+
+        .hero .ornament span {
+            font-size: 13px;
+        }
+
+        .hero .ornament .line {
+            height: 1px;
+            width: 64px;
+            background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+        }
+
+        /* ===== LAYOUT ===== */
+        .columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 64px;
+        }
+
+        @media (max-width: 880px) {
+            .columns {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .wrap {
+                padding: 48px 18px 0;
+            }
+        }
+
+        .category {
+            margin-bottom: 46px;
+        }
+
+        /* section title — double frame like a chalk-drawn box */
+        .cat-title {
+            position: relative;
+            border: 1px solid var(--gold-dim);
+            padding: 13px 22px;
+            margin-bottom: 22px;
+        }
+
+        .cat-title::before {
+            content: "";
+            position: absolute;
+            inset: 4px;
+            border: 1px solid rgba(201, 163, 95, 0.28);
+            pointer-events: none;
+        }
+
+        .cat-title h2 {
+            margin: 0;
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: 19px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--cream);
+            text-align: center;
+        }
+
+        /* subsection label, e.g. ALL-TIME CLASSICS */
+        .sub-title {
+            display: inline-block;
+            font-family: 'Jost', sans-serif;
+            font-size: 11.5px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--bg);
+            background: var(--gold);
+            padding: 5px 14px;
+            margin-bottom: 14px;
+            font-weight: 600;
+        }
+
+        .price-heads {
+            display: flex;
+            justify-content: flex-end;
+            gap: 30px;
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--cream-dim);
+            margin-bottom: 8px;
+            padding-right: 2px;
+        }
+
+        .price-heads span {
+            width: 54px;
+            text-align: right;
+        }
+
+        ul.items {
+            list-style: none;
+            margin: 0 0 26px;
+            padding: 0;
+        }
+
+        .item {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            padding: 7px 0;
+            font-size: 15.5px;
+        }
+
+        .item .name {
+            color: var(--cream);
+            white-space: nowrap;
+            font-weight: 400;
+        }
+
+        .item .dots {
+            flex: 1;
+            border-bottom: 1.5px dotted var(--rule);
+            height: 0;
+            margin-bottom: 5px;
+        }
+
+        .item .prices {
+            display: flex;
+            gap: 30px;
+            font-family: 'Fraunces', serif;
+            color: var(--gold);
+            font-size: 15px;
+        }
+
+        .item .prices span {
+            width: 54px;
+            text-align: right;
+            display: inline-block;
+        }
+
+        .item .prices span.empty {
+            color: transparent;
+        }
+
+        .item.single .prices span {
+            width: auto;
+            min-width: 54px;
+        }
+
+        /* new beverages — starred treatment */
+        .cat-title.starred h2::before,
+        .cat-title.starred h2::after {
+            content: "✦";
+            color: var(--gold);
+            font-size: 13px;
+            margin: 0 12px;
+            vertical-align: middle;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 28px;
+            border-top: 1px solid var(--rule);
+            color: var(--cream-dim);
+            font-size: 12px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        footer .gold {
+            color: var(--gold-dim);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrap">
+
+        <div class="hero">
+            <div class="eyebrow">Est. in a quiet corner</div>
+            <h1>The Roasted <em>Leaf</em></h1>
+            <div class="sub">A menu for slow mornings &amp; long conversations</div>
+            <div class="ornament"><span class="line"></span><span>☕</span><span class="line"></span></div>
+        </div>
+
+        <div class="columns">
+
+            <!-- ============ LEFT COLUMN ============ -->
+            <div class="col-left">
+
+                <div class="category">
+                    <div class="cat-title">
+                        <h2>Heartwarming Coffees</h2>
+                    </div>
+
+                    <span class="sub-title">All-Time Classics</span>
+                    <div class="price-heads"><span>Regular</span><span>Large</span></div>
+                    <ul class="items">
+                        <li class="item"><span class="name">Vanilla Latte</span><span class="dots"></span><span
+                                class="prices"><span>₹181</span><span>₹210</span></span></li>
+                        <li class="item"><span class="name">Himalayan Pink Salt Cappuccino</span><span
+                                class="dots"></span><span class="prices"><span>₹162</span><span>₹190</span></span></li>
+                        <li class="item"><span class="name">White Chocolate Cappuccino</span><span
+                                class="dots"></span><span class="prices"><span>₹162</span><span>₹190</span></span></li>
+                        <li class="item"><span class="name">Turmeric Ginger Cappuccino</span><span
+                                class="dots"></span><span class="prices"><span>₹162</span><span>₹190</span></span></li>
+                        <li class="item"><span class="name">Vanilla Cappuccino</span><span class="dots"></span><span
+                                class="prices"><span>₹162</span><span>₹190</span></span></li>
+                        <li class="item"><span class="name">Soy Cappuccino</span><span class="dots"></span><span
+                                class="prices"><span>₹162</span><span>₹190</span></span></li>
+                        <li class="item"><span class="name">Café Latte</span><span class="dots"></span><span
+                                class="prices"><span>₹157</span><span>₹181</span></span></li>
+                        <li class="item"><span class="name">Classic Cappuccino</span><span class="dots"></span><span
+                                class="prices"><span>₹148</span><span>₹181</span></span></li>
+                    </ul>
+
+                    <ul class="items">
+                        <li class="item single"><span class="name">Inverted Cappuccino</span><span
+                                class="dots"></span><span class="prices"><span>₹162</span></span></li>
+                        <li class="item single"><span class="name">Blue Cappuccino</span><span class="dots"></span><span
+                                class="prices"><span>₹162</span></span></li>
+                        <li class="item single"><span class="name">Filter Coffee</span><span class="dots"></span><span
+                                class="prices"><span>₹148</span></span></li>
+                        <li class="item single"><span class="name">Eye-opener Espresso</span><span
+                                class="dots"></span><span class="prices"><span>₹133</span></span></li>
+                    </ul>
+                </div>
+
+                <div class="category">
+                    <div class="cat-title">
+                        <h2>Signature Selections</h2>
+                    </div>
+                    <ul class="items">
+                        <li class="item single"><span class="name">Ethiopian Coffee</span><span
+                                class="dots"></span><span class="prices"><span>₹195</span></span></li>
+                        <li class="item single"><span class="name">Café Mocha</span><span class="dots"></span><span
+                                class="prices"><span>₹181</span></span></li>
+                        <li class="item single"><span class="name">Macchiato</span><span class="dots"></span><span
+                                class="prices"><span>₹148</span></span></li>
+                        <li class="item single"><span class="name">Café Americano</span><span class="dots"></span><span
+                                class="prices"><span>₹148</span></span></li>
+                    </ul>
+                </div>
+
+                <div class="category">
+                    <div class="cat-title">
+                        <h2>Cold Coffee Delights</h2>
+                    </div>
+                    <ul class="items">
+                        <li class="item single"><span class="name">Vegan Shake</span><span class="dots"></span><span
+                                class="prices"><span>₹181</span></span></li>
+                        <li class="item single"><span class="name">Tropical Iceberg</span><span
+                                class="dots"></span><span class="prices"><span>₹181</span></span></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- ============ RIGHT COLUMN ============ -->
+            <div class="col-right">
+
+                <div class="category">
+                    <div class="cat-title">
+                        <h2>Indulgent Frappes</h2>
+                    </div>
+                    <ul class="items">
+                        <li class="item single"><span class="name">Devil's Own</span><span class="dots"></span><span
+                                class="prices"><span>₹238</span></span></li>
+                        <li class="item single"><span class="name">Dark Frappe</span><span class="dots"></span><span
+                                class="prices"><span>₹229</span></span></li>
+                        <li class="item single"><span class="name">Alphonso Mango Frappe</span><span
+                                class="dots"></span><span class="prices"><span>₹229</span></span></li>
+                        <li class="item single"><span class="name">Crunchy Frappe</span><span class="dots"></span><span
+                                class="prices"><span>₹195</span></span></li>
+                        <li class="item single"><span class="name">Café Frappe</span><span class="dots"></span><span
+                                class="prices"><span>₹181</span></span></li>
+                    </ul>
+                </div>
+
+                <div class="category">
+                    <div class="cat-title">
+                        <h2>Shakes &amp; Coolers</h2>
+                    </div>
+                    <ul class="items">
+                        <li class="item single"><span class="name">Alphonso Mango Shake</span><span
+                                class="dots"></span><span class="prices"><span>₹181</span></span></li>
+                        <li class="item single"><span class="name">Cool Blue</span><span class="dots"></span><span
+                                class="prices"><span>₹181</span></span></li>
+                        <li class="item single"><span class="name">Classic Lemonade</span><span
+                                class="dots"></span><span class="prices"><span>₹167</span></span></li>
+                        <li class="item single"><span class="name">Classic Strawberry Shake</span><span
+                                class="dots"></span><span class="prices"><span>₹162</span></span></li>
+                    </ul>
+                </div>
+
+                <div class="category">
+                    <div class="cat-title">
+                        <h2>Chocolate Indulgences</h2>
+                    </div>
+                    <ul class="items">
+                        <li class="item single"><span class="name">Gourmet Belgian Cold Chocolate</span><span
+                                class="dots"></span><span class="prices"><span>₹224</span></span></li>
+                        <li class="item single"><span class="name">Gourmet Belgian Hot Chocolate</span><span
+                                class="dots"></span><span class="prices"><span>₹195</span></span></li>
+                    </ul>
+                </div>
+
+                <div class="category">
+                    <div class="cat-title">
+                        <h2>Comforting Teas</h2>
+                    </div>
+                    <ul class="items">
+                        <li class="item single"><span class="name">Assam Tea</span><span class="dots"></span><span
+                                class="prices"><span>₹133</span></span></li>
+                        <li class="item single"><span class="name">Green Tea / Green Mint Tea</span><span
+                                class="dots"></span><span class="prices"><span>₹133</span></span></li>
+                        <li class="item single"><span class="name">Kadak Chai</span><span class="dots"></span><span
+                                class="prices"><span>₹114</span></span></li>
+                        <li class="item single"><span class="name">Masala Chai</span><span class="dots"></span><span
+                                class="prices"><span>₹114</span></span></li>
+                    </ul>
+                </div>
+
+                <div class="category">
+                    <div class="cat-title starred">
+                        <h2>New Beverages</h2>
+                    </div>
+                    <ul class="items">
+                        <li class="item single"><span class="name">Ultimate Cheesecake Frappe</span><span
+                                class="dots"></span><span class="prices"><span>₹210</span></span></li>
+                        <li class="item single"><span class="name">Tangerine White Chocolate Frappe</span><span
+                                class="dots"></span><span class="prices"><span>₹210</span></span></li>
+                        <li class="item single"><span class="name">Tangerine White Chocolate Iced Coffee</span><span
+                                class="dots"></span><span class="prices"><span>₹190</span></span></li>
+                        <li class="item single"><span class="name">Signature Cold Coffee</span><span
+                                class="dots"></span><span class="prices"><span>₹190</span></span></li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+        <footer>
+            All prices are inclusive of taxes <span class="gold">·</span> Subject to change without notice
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
